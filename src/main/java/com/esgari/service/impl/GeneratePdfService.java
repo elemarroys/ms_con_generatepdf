@@ -1,6 +1,5 @@
 package com.esgari.service.impl;
 
-import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +10,6 @@ import com.esgari.jasper.bean.ComprobanteCfdiForwardingBean;
 import com.esgari.mapper.IComprobanteCfdiForwardingRequestMapping;
 import com.esgari.mapper.IComprobanteCfdiForwardingResponseMapping;
 import com.esgari.service.IGeneratePdfService;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.JRException;
@@ -38,7 +34,7 @@ public class GeneratePdfService implements IGeneratePdfService {
 		ComprobanteCfdiForwardingBean comprobanteCfdiForwardingBean = comprobanteCfdiForwardingRequestMapping.toRequest(request);
 		String binary64PDF = comprobanteCfdiForwarding.getBase64PDF(comprobanteCfdiForwardingBean,reportType);
 		GeneratePDFResponseMessage generatePDFResponseMessage = comprobanteCfdiForwardingResponseMapping.toResponse(binary64PDF);
-		return (generatePDFResponseMessage);
+		return generatePDFResponseMessage;
 
 	}
 	

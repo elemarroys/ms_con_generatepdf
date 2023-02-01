@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.esgari.bean.GeneratePDFRequestMessage;
-import com.esgari.bean.GeneratePDFResponseMessage;
 import com.esgari.bean.GeneratePdfException;
 import com.esgari.service.IGeneratePdfService;
 
@@ -26,7 +25,7 @@ public class GeneratePdfController<T> {
 	@PostMapping(path = "/generatepdf/{reportType}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<T> generatePdf(@PathVariable("reportType") String reportType,@RequestBody GeneratePDFRequestMessage request) {	
 		try {
-			return new ResponseEntity<T>((T) service.getPDF(request,reportType),HttpStatus.ACCEPTED);
+			return new ResponseEntity<T>((T) service.getPDF(request,reportType),HttpStatus.OK);
 		} catch (JRException e) {
 			// TODO Auto-generated catch block
 			return new ResponseEntity<T>((T) new GeneratePdfException("400",e.getMessage()),HttpStatus.BAD_REQUEST);
