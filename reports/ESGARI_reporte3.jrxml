@@ -271,6 +271,7 @@ expedición:]]></text>
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="50" height="28" uuid="166a25a9-2cab-4a34-aab4-792e10a04363"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -288,6 +289,7 @@ Serv:]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="90" height="28" uuid="199ca05b-3804-4159-a3d3-cf2f1362f79d"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{claveProdServ}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -304,6 +306,7 @@ Serv:]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="100" height="28" uuid="d98d1817-ed6b-4b48-a38b-acf6cbcefb64"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -320,6 +323,7 @@ Serv:]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="60" height="28" uuid="56ab02e1-e371-4b4f-b455-0367df20e927"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{unidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -336,6 +340,7 @@ Serv:]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="70" height="28" uuid="7b6dbcbb-60fd-4413-ab0e-2f57e6cfc48d"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{precioUnitario}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -352,6 +357,7 @@ Serv:]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="60" height="28" uuid="af0c870e-32c7-4eb7-8e4b-da10b8077cde"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -368,6 +374,7 @@ Serv:]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="90" height="28" uuid="ecbcbf2c-be95-47a8-a9a8-651a1f84a3d2"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{impuestos}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -384,6 +391,7 @@ Serv:]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="50" height="28" uuid="ba54e610-1b45-458a-b345-777702df5d15"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{importe}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>

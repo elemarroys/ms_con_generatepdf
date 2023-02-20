@@ -628,7 +628,7 @@ comprobante de pago:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="100" height="28" uuid="1c059769-2c76-41af-a67a-79288ec9ac44"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{uuid}]]></textFieldExpression>
@@ -649,7 +649,7 @@ comprobante de pago:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="edaf096b-0544-4675-a95f-422b78e502ec"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{serie}]]></textFieldExpression>
@@ -670,7 +670,7 @@ comprobante de pago:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="1be3efa3-0da4-41b3-8361-019883abb42d"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
@@ -692,7 +692,7 @@ pago:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="4662438f-d3f0-4f47-9ef8-e85f3bad8b39"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{metodoPago}]]></textFieldExpression>
@@ -713,7 +713,7 @@ pago:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="fbb785a3-9e50-424d-81e8-4f7843d68ba7"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
@@ -734,7 +734,7 @@ pago:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="bd20b25d-c01f-4989-9ff8-69e5fbd6ed5e"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{monedaDr}]]></textFieldExpression>
@@ -756,7 +756,7 @@ Cambio DR:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="c1988772-e1ee-44fd-a8e8-c6bb114f44c6"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{tipoCambioDr}]]></textFieldExpression>
@@ -777,7 +777,7 @@ Cambio DR:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="6c455f32-7daa-4499-aa42-fffe7035f829"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{parcialidad}]]></textFieldExpression>
@@ -799,7 +799,7 @@ anterior:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="518d5ba3-7518-4875-afea-2026e48c5ae8"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{saldoAnterior}]]></textFieldExpression>
@@ -821,7 +821,7 @@ pagado:]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="22297690-5479-4fd6-b6e8-09770ce0251f"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{montoPagado}]]></textFieldExpression>
@@ -843,7 +843,7 @@ insoluto]]></text>
 						<jr:detailCell style="Table 1_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="40" height="28" uuid="84e5b611-8a57-41a6-9f47-25983c321113"/>
-								<textElement>
+								<textElement textAlignment="Center">
 									<font size="8"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{saldoAbsoluto}]]></textFieldExpression>
@@ -943,6 +943,7 @@ insoluto]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="70" height="28" uuid="60382ebc-f2ce-4717-ab9d-a837dea41ab4"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{claveProdServ}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -959,6 +960,7 @@ insoluto]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="60" height="28" uuid="5c458fc9-c5be-46d9-af2e-3a3a64ebef38"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -975,6 +977,7 @@ insoluto]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="170" height="28" uuid="5a0adaa3-c1f4-4ee1-b1a3-ff13d8dfb66e"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -991,6 +994,7 @@ insoluto]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="80" height="28" uuid="136c2ae9-4922-4411-903a-45f3cf34ffc7"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{claveUnidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -1007,6 +1011,7 @@ insoluto]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="80" height="28" uuid="f2a86fa9-add3-4414-a478-3dd7d5c78839"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{precioUnitario}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -1023,6 +1028,7 @@ insoluto]]></text>
 						<jr:detailCell style="Table_TD" height="28">
 							<textField isBlankWhenNull="true">
 								<reportElement x="0" y="0" width="80" height="28" uuid="4bb9764a-1c8a-4c52-b299-dbd72e2c1516"/>
+								<textElement textAlignment="Center"/>
 								<textFieldExpression><![CDATA[$F{importe}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
