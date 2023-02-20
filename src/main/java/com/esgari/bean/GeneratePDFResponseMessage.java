@@ -14,5 +14,8 @@ public class GeneratePDFResponseMessage implements Serializable {
 	 */
 	private static final long serialVersionUID = -7657751283717110519L;
 	private String binary64Pdf;
+	
+	
+	
 
 }
