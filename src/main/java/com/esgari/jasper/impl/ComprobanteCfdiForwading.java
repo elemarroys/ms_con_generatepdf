@@ -3,6 +3,7 @@ package com.esgari.jasper.impl;
 import java.io.File;
 import java.util.Base64;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
@@ -24,6 +25,13 @@ import net.sf.jasperreports.engine.JasperReport;
 @Component
 public class ComprobanteCfdiForwading implements IComprobanteCfdiForwarding {
 
+	@Value("${esgari.pdf.cloudComplemento}")
+	private String pdfCloudComplemento;
+	@Value("${esgari.pdf.cloudFactura}")
+	private String pdfCloudFactura;
+	@Value("${esgari.pdf.cloudNotaCredito}")
+	private String pdfCloudNotaCredito;
+
 	@Override
 	public String getBase64PDF(ComprobanteCfdiForwardingBean request,String reportType) throws JRException {
 		// TODO Auto-generated method stub
@@ -32,13 +40,13 @@ public class ComprobanteCfdiForwading implements IComprobanteCfdiForwarding {
 		try {
 			switch (reportType) {
 			case "cloudComplemento":
-				file = ResourceUtils.getFile("/usr/local/reports/ESGARI_reporte1.jrxml");
+				file = ResourceUtils.getFile(pdfCloudComplemento);
 				break;
 			case "cloudFactura":
-				file = ResourceUtils.getFile("/usr/local/reports/ESGARI_reporte2.jrxml");
+				file = ResourceUtils.getFile(pdfCloudFactura);
 				break;
 			case "cloudNotaCredito":
-				file = ResourceUtils.getFile("/usr/local/reports/ESGARI_reporte3.jrxml");
+				file = ResourceUtils.getFile(pdfCloudNotaCredito);
 				break;
 
 			default:

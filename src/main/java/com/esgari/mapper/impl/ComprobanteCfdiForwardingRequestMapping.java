@@ -15,6 +15,7 @@ import org.springframework.util.ResourceUtils;
 import com.esgari.bean.GeneratePDFRequestMessage;
 import com.esgari.jasper.bean.ComprobanteCfdiForwardingBean;
 import com.esgari.mapper.IComprobanteCfdiForwardingRequestMapping;
+import com.esgari.utilities.Numero_Letras;
 
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -119,7 +120,7 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 				parameters.put("descripcion", request.getDetalleFactura().getDescripcion());
 
 			if (request.getDetalleFactura().getImporteConLetra() != null)
-				parameters.put("importeConLetra", request.getDetalleFactura().getImporteConLetra());
+				parameters.put("importeConLetra", toSetImporteConLetra(request.getDetalleFactura().getTotal()));
 
 			if (request.getDetalleFactura().getIva() != null)
 				parameters.put("iva", request.getDetalleFactura().getIva());
@@ -253,9 +254,16 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 	}
 	}
 
+
+
 	private ByteArrayInputStream toSetQr(String qRbase64) {
 		// TODO Auto-generated method stub
 		return new ByteArrayInputStream(Base64.getDecoder().decode(qRbase64));
+	}
+
+
+	private String toSetImporteConLetra(String total) {
+		return new Numero_Letras().Convertir(total,true);
 	}
 	
 
