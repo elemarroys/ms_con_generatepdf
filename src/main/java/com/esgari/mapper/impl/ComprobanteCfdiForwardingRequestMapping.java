@@ -6,12 +6,16 @@ import java.io.FileInputStream;
 import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
+import com.esgari.bean.Articulo;
+import com.esgari.bean.DetalleFactura;
 import com.esgari.bean.GeneratePDFRequestMessage;
 import com.esgari.jasper.bean.ComprobanteCfdiForwardingBean;
 import com.esgari.mapper.IComprobanteCfdiForwardingRequestMapping;
@@ -116,10 +120,7 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 				parameters.put("cd", new JRBeanCollectionDataSource(request.getDetalleFactura().getArticulos()));
 			// factura
 
-			if (request.getDetalleFactura().getDescripcion() != null)
-				parameters.put("descripcion", request.getDetalleFactura().getDescripcion());
-
-			if (request.getDetalleFactura().getImporteConLetra() != null)
+				parameters.put("descripcion", tosetDescripcion(request.getDetalleFactura().getArticulos()));
 				parameters.put("importeConLetra", toSetImporteConLetra(request.getDetalleFactura().getTotal()));
 
 			if (request.getDetalleFactura().getIva() != null)
@@ -209,8 +210,7 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 				if (request.getComplementoPago().getTipoCadenaPago() != null)
 					parameters.put("tipoCadenaPago", request.getComplementoPago().getTipoCadenaPago());
 
-				if (request.getComplementoPago().getImporteLetra() != null)
-					parameters.put("importeLetra", request.getComplementoPago().getImporteLetra());
+					parameters.put("importeLetra", toSetImporteConLetra(request.getComplementoPago().getMonto()));
 
 				if (request.getComplementoPago().getCertificadoPago() != null)
 					parameters.put("certificadoPago", request.getComplementoPago().getCertificadoPago());
@@ -263,7 +263,41 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 
 
 	private String toSetImporteConLetra(String total) {
+		
 		return new Numero_Letras().Convertir(total,true);
+	}
+
+
+	private String tosetDescripcion(List<Articulo> articulos){
+
+		Map<String,String>descripciones = new HashMap<String,String>();
+
+		for(Articulo articulo:articulos){
+
+			if(descripciones.get(articulo.getClaveProdServ()) == null){
+
+				descripciones.put(articulo.getClaveProdServ(), articulo.getDescripcion());
+
+			}
+
+		}
+
+		List<String> descripcionList = descripciones.values().stream().collect(Collectors.toList());
+		StringBuilder sb = new StringBuilder();
+		for (String descripcion : descripcionList) {
+
+			sb.append(descripcion).append(",");
+
+
+			
+		}
+
+		String descripcionResultado = sb.toString();
+		descripcionResultado = descripcionResultado.substring(0,descripcionResultado.length()-1);
+
+
+
+		return descripcionResultado;
 	}
 	
 

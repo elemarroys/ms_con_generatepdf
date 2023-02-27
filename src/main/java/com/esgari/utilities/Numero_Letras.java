@@ -2,10 +2,13 @@ package com.esgari.utilities;
 
 import java.util.regex.Pattern;
 
+import org.jfree.util.Log;
+
 
 public class Numero_Letras {
 
-    private final String[] UNIDADES = {"", "un ", "dos ", "tres ", "cuatro ", "cinco ", "seis ", "siete ", "ocho ", "nueve "};
+    private final String[] UNIDADES = {"", "uno ", "dos ", "tres ", "cuatro ", "cinco ", "seis ", "siete ", "ocho ", "nueve "};
+    private final String[] DECENAS_20 = {"","veintiuno ", "veintidos ", "veintitres ", "veinticuatro ", "veinticinco ", "veintiseis ", "veintisiete ", "veintiocho ", "veintinueve"};
     private final String[] DECENAS = {"diez ", "once ", "doce ", "trece ", "catorce ", "quince ", "dieciseis ",
         "diecisiete ", "dieciocho ", "diecinueve", "veinte ", "treinta ", "cuarenta ",
         "cincuenta ", "sesenta ", "setenta ", "ochenta ", "noventa "};
@@ -16,7 +19,9 @@ public class Numero_Letras {
     }
 
     public String Convertir(String numero, boolean mayusculas) {
+        System.out.println("numero: "+numero);
         String literal = "";
+        boolean onlyDecimal =false;
         String parte_decimal;
         //si el numero utiliza (.) en lugar de (,) -> se reemplaza
         numero = numero.replace(".", ",");
@@ -29,7 +34,15 @@ public class Numero_Letras {
             //se divide el numero 0000000,00 -> entero y decimal
             String Num[] = numero.split(",");
             //de da formato al numero decimal
-            parte_decimal = "y " + Num[1] + "/100 Pesos.";
+            if(Num[1].length() >0 && !Num[1].equals("00")){
+                parte_decimal = " " + Num[1] + "/100 MXN";
+            
+            }
+            else{
+                parte_decimal="00/100 MXN";
+            }
+
+
             //se convierte el numero a literal
             if (Integer.parseInt(Num[0]) == 0) {//si el valor es cero
                 literal = "cero ";
@@ -46,9 +59,10 @@ public class Numero_Letras {
             }
             //devuelve el resultado en mayusculas o minusculas
             if (mayusculas) {
-                return (literal + parte_decimal).toUpperCase().concat(" MXN 00/100 MXN");
+                System.out.println((literal + parte_decimal).toUpperCase());
+                return (literal + parte_decimal).toUpperCase();
             } else {
-                return (literal + parte_decimal.concat(" MXN 00/100 MXN"));
+                return (literal + parte_decimal);
             }
         } else {//error, no se puede convertir
             return literal = null;
@@ -71,7 +85,13 @@ public class Numero_Letras {
             if (u.equals("")) { //para 20,30,40,50,60,70,80,90
                 return DECENAS[Integer.parseInt(num.substring(0, 1)) + 8];
             } else {
-                return DECENAS[Integer.parseInt(num.substring(0, 1)) + 8] + "y " + u;
+                if(n>20 && n<30){
+                    return DECENAS_20[Integer.parseInt(num.substring(1, 2))];
+
+                }else{
+
+                    return DECENAS[Integer.parseInt(num.substring(0, 1)) + 8] + "y " + u;
+                }
             }
         } else {//numeros entre 11 y 19
             return DECENAS[n - 10];
@@ -99,7 +119,13 @@ public class Numero_Letras {
         String n = "";
         //se comprueba que miles tenga valor entero
         if (Integer.parseInt(m) > 0) {
+            if(Integer.parseInt(m) == 1){
+                n="";
+
+            }else{
             n = getCentenas(m);
+            }
+            
             return n + "mil " + getCentenas(c);
         } else {
             return "" + getCentenas(c);
@@ -113,7 +139,7 @@ public class Numero_Letras {
         //se obtiene los millones
         String millon = numero.substring(0, numero.length() - 6);
         String n = "";
-        if (millon.length() > 1) {
+        if (Integer.parseInt(millon) > 1) {
             n = getCentenas(millon) + "millones ";
         } else {
             n = getUnidades(millon) + "millon ";
