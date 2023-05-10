@@ -54,5 +54,55 @@ public class Header implements Serializable {
 	
 	@JsonProperty("tipoDeDocumento")
 	private String tipoDeDocumento;
+	
+	@JsonProperty("orderReleaseID")
+	private String orderReleaseID;
 
+	@JsonProperty("unidad")
+	private String unidad;
+	
+	@JsonProperty("noTracto")
+	private String noTracto;
+	
+	@JsonProperty("placas")
+	private String placas;
+	
+	@JsonProperty("noCajas")
+	private String noCajas;
+	
+	@JsonProperty("placas2")
+	private String placas2;
+	
+	@JsonProperty("nombreOperador")
+	private String nombreOperador;
+	
+	@JsonProperty("nombreCargador")
+	private String nombreCargador;
+	
+	@JsonProperty("kmSalida")
+	private String kmSalida;
+	
+	@JsonProperty("combustibleSalida")
+	private String combustibleSalida;
+	
+	@JsonProperty("proyecto")
+	private String proyecto;
+	
+	@JsonProperty("contenedor")
+	private String contenedor;
+	
+	@JsonProperty("recorrido")
+	private String recorrido;
+	
+	@JsonProperty("folioFiscal")
+	private String folioFiscal;
+	
+	@JsonProperty("numeroDeCertificado")
+	private String numeroDeCertificado;
+	
+	@JsonProperty("fechaYHoraDeCertificacion")
+	private String fechaYHoraDeCertificacion;
+	
+	@JsonProperty("numeroDeCertificadoDelSat")
+	private String numeroDeCertificadoDelSat;
 }

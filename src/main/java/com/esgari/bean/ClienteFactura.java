@@ -27,6 +27,9 @@ public class ClienteFactura {
 	@JsonProperty("subtotal")
 	private String subtotal;
 	
+	@JsonProperty("indemnizacion")
+	private String indemnizacion;
+	
 	@JsonProperty("iva")
 	private String iva;
 	

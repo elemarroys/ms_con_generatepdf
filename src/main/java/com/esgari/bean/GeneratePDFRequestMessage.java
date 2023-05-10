@@ -18,6 +18,9 @@ public class GeneratePDFRequestMessage implements Serializable {
 
 	@JsonProperty("header")
 	private Header header;
+	
+	@JsonProperty("issuingCompanyInformation")
+	private IssuingCompanyInformation issuingCompanyInformation;
 
 	@JsonProperty("cliente")
 	private Cliente cliente;
@@ -33,6 +36,9 @@ public class GeneratePDFRequestMessage implements Serializable {
 
 	@JsonProperty("doctosRelacionados")
 	private DoctosRelacionados doctosRelacionados;
+	
+	@JsonProperty("mercancias")
+	private Mercancias mercancias;
 
 	@JsonProperty("sellos")
 	private Sellos sellos;
@@ -42,5 +48,8 @@ public class GeneratePDFRequestMessage implements Serializable {
 	
 	@JsonProperty("cfdiRelacionados")
 	private CfdiRelacionados cfdiRelacionados;
+	
+	@JsonProperty("detallesDirreciones")
+	private DetallesDirreciones detallesDirreciones;
 
 }

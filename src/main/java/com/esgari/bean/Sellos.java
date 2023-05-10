@@ -25,6 +25,12 @@ public class Sellos implements Serializable {
 	@JsonProperty("selloDigitalCDFI")
 	private String selloDigitalCDFI;
 	
+	@JsonProperty("observacion")
+	private String observacion;
+	
+	@JsonProperty("cantidadConLetra")
+	private String cantidadConLetra;
+	
 	@JsonProperty("QRbase64")
 	private String QRbase64;
 	

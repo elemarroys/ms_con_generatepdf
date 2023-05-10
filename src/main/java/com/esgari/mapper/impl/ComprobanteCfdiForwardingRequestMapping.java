@@ -1,14 +1,12 @@
 package com.esgari.mapper.impl;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.FileInputStream;
-import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.core.io.ClassPathResource;
+
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
@@ -50,7 +48,28 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 					ResourceUtils.getFile("/usr/local/img/ESGARI_LOGO_1.png")));
 			
 			
+			// issuingCompanyInformation
+			if (request.getIssuingCompanyInformation().getIssuingCompanyName() != null)
+				parameters.put("issuingCompanyName", request.getIssuingCompanyInformation().getIssuingCompanyName());
+
+			if (request.getIssuingCompanyInformation().getIssuingCompanyAdressLine() != null)
+				parameters.put("issuingCompanyAdressLine", request.getIssuingCompanyInformation().getIssuingCompanyAdressLine());
 			
+			if (request.getIssuingCompanyInformation().getIssuingCompanyCity() != null)
+				parameters.put("issuingCompanyCity", request.getIssuingCompanyInformation().getIssuingCompanyCity());
+			
+			if (request.getIssuingCompanyInformation().getIssuingCompanyCountry() != null)
+				parameters.put("issuingCompanyCountry", request.getIssuingCompanyInformation().getIssuingCompanyCountry());
+			
+			if (request.getIssuingCompanyInformation().getIssuingCompanyProvince() != null)
+				parameters.put("issuingCompanyProvince", request.getIssuingCompanyInformation().getIssuingCompanyProvince());
+			
+			if (request.getIssuingCompanyInformation().getIssuingCompanyPhonenumber() != null)
+				parameters.put("issuingCompanyPhonenumber", request.getIssuingCompanyInformation().getIssuingCompanyPhonenumber());
+			
+			if (request.getIssuingCompanyInformation().getIssuingCompanyRfc() != null)
+				parameters.put("issuingCompanyRfc", request.getIssuingCompanyInformation().getIssuingCompanyRfc());
+
 
 			// header
 			if (request.getHeader().getSerie() != null)
@@ -91,6 +110,59 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 
 			if (request.getHeader().getMetodoDePago() != null)
 				parameters.put("metodoDePago", request.getHeader().getMetodoDePago());
+
+
+				if (request.getHeader().getOrderReleaseID() != null)
+				parameters.put("orderReleaseID", request.getHeader().getOrderReleaseID());
+			
+			if (request.getHeader().getUnidad() != null)
+				parameters.put("unidad", request.getHeader().getUnidad());
+			
+			if (request.getHeader().getNoTracto() != null)
+				parameters.put("noTracto", request.getHeader().getNoTracto());
+			
+			if (request.getHeader().getNoCajas() != null)
+				parameters.put("noCajas", request.getHeader().getNoCajas());
+			
+			if (request.getHeader().getPlacas() != null)
+				parameters.put("placas", request.getHeader().getPlacas());
+			
+			if (request.getHeader().getPlacas2() != null)
+				parameters.put("placas2", request.getHeader().getPlacas2());
+			
+			if (request.getHeader().getNombreOperador() != null)
+				parameters.put("nombreOperador", request.getHeader().getNombreOperador());
+			
+			if (request.getHeader().getNombreCargador() != null)
+				parameters.put("nombreCargador", request.getHeader().getNombreCargador());
+			
+			if (request.getHeader().getKmSalida() != null)
+				parameters.put("kmSalida", request.getHeader().getKmSalida());
+			
+			if (request.getHeader().getCombustibleSalida() != null)
+				parameters.put("combustibleSalida", request.getHeader().getCombustibleSalida());
+			
+			if (request.getHeader().getProyecto() != null)
+				parameters.put("proyecto", request.getHeader().getProyecto());
+			
+			if (request.getHeader().getContenedor() != null)
+				parameters.put("contenedor", request.getHeader().getContenedor());
+			
+			if (request.getHeader().getRecorrido() != null)
+				parameters.put("recorrido", request.getHeader().getRecorrido());
+			
+			if (request.getHeader().getFolioFiscal() != null)
+				parameters.put("folioFiscal", request.getHeader().getFolioFiscal());
+			
+			if (request.getHeader().getNumeroDeCertificado() != null)
+				parameters.put("numeroDeCertificado", request.getHeader().getNumeroDeCertificado());
+			
+			if (request.getHeader().getFechaYHoraDeCertificacion() != null)
+				parameters.put("fechaYHoraDeCertificacion", request.getHeader().getFechaYHoraDeCertificacion());
+			
+			if (request.getHeader().getNumeroDeCertificadoDelSat() != null)
+				parameters.put("numeroDeCertificadoDelSat", request.getHeader().getNumeroDeCertificadoDelSat());
+
 			// cliente
 
 			if (request.getCliente().getNombre() != null)
@@ -110,6 +182,60 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 
 			if (request.getCliente().getObservaciones() != null)
 				parameters.put("observaciones", request.getCliente().getObservaciones());
+
+// DetallesDireccesiones
+			
+if (request.getDetallesDirreciones().getOrigen() != null)
+parameters.put("origen", request.getDetallesDirreciones().getOrigen());
+
+if (request.getDetallesDirreciones().getDestino() != null)
+parameters.put("destino", request.getDetallesDirreciones().getDestino());
+
+if (request.getDetallesDirreciones().getRemitenteOExpedidor() != null)
+parameters.put("remitenteOExpedidor", request.getDetallesDirreciones().getRemitenteOExpedidor());
+
+if (request.getDetallesDirreciones().getDestinatario() != null)
+parameters.put("destinatario", request.getDetallesDirreciones().getDestinatario());
+
+if (request.getDetallesDirreciones().getDomicilio1() != null)
+parameters.put("domicilio1", request.getDetallesDirreciones().getDomicilio1());
+
+if (request.getDetallesDirreciones().getDomicilio2() != null)
+parameters.put("domicilio2", request.getDetallesDirreciones().getDomicilio2());
+
+if (request.getDetallesDirreciones().getDomicilio2() != null)
+parameters.put("seRecogeraEn", request.getDetallesDirreciones().getDomicilio2());
+
+if (request.getDetallesDirreciones().getRFC() != null)
+parameters.put("RFC", request.getDetallesDirreciones().getRFC());
+
+if (request.getDetallesDirreciones().getFechaCarga() != null)
+parameters.put("fechaCarga", request.getDetallesDirreciones().getFechaCarga());
+
+if (request.getDetallesDirreciones().getFechaOPlazoPrevisto() != null)
+parameters.put("fechaOPlazoPrevisto", request.getDetallesDirreciones().getFechaOPlazoPrevisto());
+
+if (request.getDetallesDirreciones().getDesignacionMercanciaATransportar() != null)
+parameters.put("designacionMercanciaATransportar", request.getDetallesDirreciones().getDesignacionMercanciaATransportar());
+
+if (request.getDetallesDirreciones().getResiduoPeligrosoSi() != null)
+parameters.put("getResiduoPeligrosoSi", request.getDetallesDirreciones().getResiduoPeligrosoSi());
+
+if (request.getDetallesDirreciones().getResiduoPeligrosoNo() != null)
+parameters.put("getResiduoPeligrosoNo", request.getDetallesDirreciones().getResiduoPeligrosoNo());
+
+if (request.getDetallesDirreciones().getPeso() != null)
+parameters.put("peso", request.getDetallesDirreciones().getPeso());
+
+if (request.getDetallesDirreciones().getMetrosCubicos() != null)
+parameters.put("metrosCubicos", request.getDetallesDirreciones().getMetrosCubicos());
+
+if (request.getDetallesDirreciones().getLitros() != null)
+parameters.put("litros", request.getDetallesDirreciones().getLitros());
+
+if (request.getDetallesDirreciones().getValorDeclarado() != null)
+parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclarado());
+
 			// articulos
 
 			if (request.getDetalleFactura().getArticulos() != null)
@@ -136,6 +262,9 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 
 			if (request.getDetalleFactura().getTotal() != null)
 				parameters.put("total", request.getDetalleFactura().getTotal());
+
+			if (request.getDetalleFactura().getIndemnizacion() != null)
+				parameters.put("indemnizacion", request.getDetalleFactura().getIndemnizacion());
 			// CFDI RELACIONADOS
 			if (request.getCfdiRelacionados() != null) {
 				if (request.getCfdiRelacionados().getTipoRelacion() != null)
@@ -238,6 +367,12 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 
 			if (request.getSellos().getSelloDigitalCDFI() != null)
 				parameters.put("selloDigitalCDFI", request.getSellos().getSelloDigitalCDFI());
+			
+			if (request.getSellos().getObservacion() != null)
+				parameters.put("observacion", request.getSellos().getObservacion());
+			
+			if (request.getSellos().getCantidadConLetra() != null)
+				parameters.put("cantidadConLetra", request.getSellos().getCantidadConLetra());
 
 			// LogoQR
 			if (!request.getSellos().getQRbase64().equals("") || request.getSellos().getQRbase64() == null) {

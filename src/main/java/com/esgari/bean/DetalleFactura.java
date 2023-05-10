@@ -42,5 +42,8 @@ public class DetalleFactura implements Serializable {
 	@JsonProperty("total")
 	private String total;
 	
+	@JsonProperty("indemnizacion")
+	private String indemnizacion;
+	
 
 }
