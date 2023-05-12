@@ -9,7 +9,6 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Getter
 @Setter
-
 public class ComprobanteCfdiForwardingBean implements Serializable {
 
 	/**

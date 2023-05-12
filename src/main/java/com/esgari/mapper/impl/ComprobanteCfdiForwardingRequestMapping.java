@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
+import org.jfree.util.Log;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
@@ -49,10 +49,13 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 			// imagenes
 
 			parameters.put("logoEmpresa", new FileInputStream(
-					ResourceUtils.getFile("/usr/local/img/ESGARI_LOGO_1.png")));
+					//ResourceUtils.getFile("/usr/local/img/ESGARI_LOGO_1.png")));
+					ResourceUtils.getFile("D:\\ERPSOL\\ESGARI\\JAVA_PROJECTS\\ms_con_generatepdf\\img\\ESGARI_LOGO_1.png")));//
 			
 			
 			// issuingCompanyInformation
+			if(request.getIssuingCompanyInformation() != null) {
+				
 			if (request.getIssuingCompanyInformation().getIssuingCompanyName() != null)
 				parameters.put("issuingCompanyName", request.getIssuingCompanyInformation().getIssuingCompanyName());
 
@@ -73,7 +76,8 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 			
 			if (request.getIssuingCompanyInformation().getIssuingCompanyRfc() != null)
 				parameters.put("issuingCompanyRfc", request.getIssuingCompanyInformation().getIssuingCompanyRfc());
-
+			}
+			
 
 			// header
 			if (request.getHeader().getSerie() != null)
@@ -188,7 +192,7 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 				parameters.put("observaciones", request.getCliente().getObservaciones());
 
 // DetallesDireccesiones
-			
+if(request.getDetallesDirreciones()!= null) {			
 if (request.getDetallesDirreciones().getOrigen() != null)
 parameters.put("origen", request.getDetallesDirreciones().getOrigen());
 
@@ -239,15 +243,19 @@ parameters.put("litros", request.getDetallesDirreciones().getLitros());
 
 if (request.getDetallesDirreciones().getValorDeclarado() != null)
 parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclarado());
+}
 
 			// articulos
 
+			if(request.getDetalleFactura()!= null) {
 			if (request.getDetalleFactura().getArticulos() != null)
 				parameters.put("cd", new JRBeanCollectionDataSource(request.getDetalleFactura().getArticulos()));
 			// factura
 
 				parameters.put("descripcion", tosetDescripcion(request.getDetalleFactura().getArticulos()));
+				if(request.getDetalleFactura().getTotal() != null) {
 				parameters.put("importeConLetra", toSetImporteConLetra(request.getDetalleFactura().getTotal()));
+				}
 
 			if (request.getDetalleFactura().getIva() != null)
 				parameters.put("iva", request.getDetalleFactura().getIva());
@@ -266,6 +274,7 @@ parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclar
 
 			if (request.getDetalleFactura().getIndemnizacion() != null)
 				parameters.put("indemnizacion", request.getDetalleFactura().getIndemnizacion());
+			}
 			// CFDI RELACIONADOS
 			if (request.getCfdiRelacionados() != null) {
 				if (request.getCfdiRelacionados().getTipoRelacion() != null)
@@ -359,6 +368,7 @@ parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclar
 						new JRBeanCollectionDataSource(request.getDoctosRelacionados().getDocumentosRelacionados()));
 
 			// Sellos
+			if(request.getSellos() != null) {
 			if (request.getSellos().getCadenaOriginal() != null)
 				parameters.put("cadenaOriginal", request.getSellos().getCadenaOriginal());
 
@@ -373,10 +383,12 @@ parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclar
 			
 			if (request.getSellos().getCantidadConLetra() != null)
 				parameters.put("cantidadConLetra", request.getSellos().getCantidadConLetra());
+		
 
 			// LogoQR
 			if (!request.getSellos().getQRbase64().equals("") || request.getSellos().getQRbase64() == null) {
 				parameters.put("LogoQR", toSetQr(request.getSellos().getQRbase64()));
+			}
 			}
 			return parameters;
 		}catch(
@@ -384,7 +396,8 @@ parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclar
 	Exception e)
 	{
 		e.printStackTrace();
-		log.error("Error al obtener los parametros del reporte ", e.getMessage());
+		
+		//log.error("Error al obtener los parametros del reporte ", e.getMessage());
 		return null;
 	}
 	}

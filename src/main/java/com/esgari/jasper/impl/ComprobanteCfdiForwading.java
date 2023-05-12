@@ -4,13 +4,11 @@ import java.io.File;
 import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
 import com.esgari.jasper.IComprobanteCfdiForwarding;
 import com.esgari.jasper.bean.ComprobanteCfdiForwardingBean;
-import com.esgari.utilities.GeneralParameters;
 
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.JREmptyDataSource;
@@ -31,6 +29,8 @@ public class ComprobanteCfdiForwading implements IComprobanteCfdiForwarding {
 	private String pdfCloudFactura;
 	@Value("${esgari.pdf.cloudNotaCredito}")
 	private String pdfCloudNotaCredito;
+	@Value("${esgari.pdf.cfdiTimbradoT}")
+	private String cfdiTimbradoT;
 
 	@Override
 	public String getBase64PDF(ComprobanteCfdiForwardingBean request,String reportType) throws JRException {
@@ -48,7 +48,9 @@ public class ComprobanteCfdiForwading implements IComprobanteCfdiForwarding {
 			case "cloudNotaCredito":
 				file = ResourceUtils.getFile(pdfCloudNotaCredito);
 				break;
-
+			case "cfdiTimbradoT":
+				file = ResourceUtils.getFile(cfdiTimbradoT);
+				break;
 			default:
 				break;
 			}
@@ -60,12 +62,10 @@ public class ComprobanteCfdiForwading implements IComprobanteCfdiForwarding {
 		}
 		try {
 		  @SuppressWarnings("rawtypes")
-	        JasperReport report = JasperCompileManager.compileReport(
-	            file.getAbsolutePath());
-		  
+	        JasperReport report = JasperCompileManager.compileReport(file.getAbsolutePath());
 	        JasperPrint print = JasperFillManager.fillReport(report, request.getParameters(), new JREmptyDataSource());	
 	          // Exporta el informe a PDF
-	          //JasperExportManager.exportReportToPdfFile(print,"D:\\ERP_sol\\ESGARI\\PDF3.pdf");
+	          //JasperExportManager.exportReportToPdfFile(print,"D:\\ERP_sol\\ESGARI\\PDF.pdf");
 	          //Para visualizar el pdf directamente desde java
 	         //JasperViewer.viewReport(print, false);
 	        byte[] reportArrayByte =  JasperExportManager.exportReportToPdf(print);
@@ -73,6 +73,8 @@ public class ComprobanteCfdiForwading implements IComprobanteCfdiForwarding {
 		return result;
 		}
 		catch (Exception e) {
+			log.info("Error Pitero: "+e.getMessage());
+			e.printStackTrace();
 			throw new JRException("Error al obtener los datos de la fatura");
 		}
 	}
