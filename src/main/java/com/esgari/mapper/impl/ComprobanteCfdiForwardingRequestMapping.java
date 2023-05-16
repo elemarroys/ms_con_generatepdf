@@ -48,9 +48,9 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 			Map parameters = new HashMap();
 			// imagenes
 
-			parameters.put("logoEmpresa", new FileInputStream(
+			//parameters.put("logoEmpresa", new FileInputStream(
 					//ResourceUtils.getFile("/usr/local/img/ESGARI_LOGO_1.png")));
-					ResourceUtils.getFile("D:\\ERPSOL\\ESGARI\\JAVA_PROJECTS\\ms_con_generatepdf\\img\\ESGARI_LOGO_1.png")));//
+					//ResourceUtils.getFile("D:\\ERPSOL\\ESGARI\\JAVA_PROJECTS\\ms_con_generatepdf\\img\\ESGARI_LOGO_1.png")));//
 			
 			
 			// issuingCompanyInformation
@@ -80,6 +80,7 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 			
 
 			// header
+			if (request.getHeader() != null) {
 			if (request.getHeader().getSerie() != null)
 				parameters.put("serie", request.getHeader().getSerie());
 
@@ -170,9 +171,9 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 			
 			if (request.getHeader().getNumeroDeCertificadoDelSat() != null)
 				parameters.put("numeroDeCertificadoDelSat", request.getHeader().getNumeroDeCertificadoDelSat());
-
+			}
 			// cliente
-
+            if(request.getCliente()!=null) {
 			if (request.getCliente().getNombre() != null)
 				parameters.put("nombre", request.getCliente().getNombre());
 
@@ -190,61 +191,63 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 
 			if (request.getCliente().getObservaciones() != null)
 				parameters.put("observaciones", request.getCliente().getObservaciones());
-
-// DetallesDireccesiones
-if(request.getDetallesDirreciones()!= null) {			
-if (request.getDetallesDirreciones().getOrigen() != null)
-parameters.put("origen", request.getDetallesDirreciones().getOrigen());
-
-if (request.getDetallesDirreciones().getDestino() != null)
-parameters.put("destino", request.getDetallesDirreciones().getDestino());
-
-if (request.getDetallesDirreciones().getRemitenteOExpedidor() != null)
-parameters.put("remitenteOExpedidor", request.getDetallesDirreciones().getRemitenteOExpedidor());
-
-if (request.getDetallesDirreciones().getDestinatario() != null)
-parameters.put("destinatario", request.getDetallesDirreciones().getDestinatario());
-
-if (request.getDetallesDirreciones().getDomicilio1() != null)
-parameters.put("domicilio1", request.getDetallesDirreciones().getDomicilio1());
-
-if (request.getDetallesDirreciones().getDomicilio2() != null)
-parameters.put("domicilio2", request.getDetallesDirreciones().getDomicilio2());
-
-if (request.getDetallesDirreciones().getDomicilio2() != null)
-parameters.put("seRecogeraEn", request.getDetallesDirreciones().getDomicilio2());
-
-if (request.getDetallesDirreciones().getRFC() != null)
-parameters.put("RFC", request.getDetallesDirreciones().getRFC());
-
-if (request.getDetallesDirreciones().getFechaCarga() != null)
-parameters.put("fechaCarga", request.getDetallesDirreciones().getFechaCarga());
-
-if (request.getDetallesDirreciones().getFechaOPlazoPrevisto() != null)
-parameters.put("fechaOPlazoPrevisto", request.getDetallesDirreciones().getFechaOPlazoPrevisto());
-
-if (request.getDetallesDirreciones().getDesignacionMercanciaATransportar() != null)
-parameters.put("designacionMercanciaATransportar", request.getDetallesDirreciones().getDesignacionMercanciaATransportar());
-
-if (request.getDetallesDirreciones().getResiduoPeligrosoSi() != null)
-parameters.put("getResiduoPeligrosoSi", request.getDetallesDirreciones().getResiduoPeligrosoSi());
-
-if (request.getDetallesDirreciones().getResiduoPeligrosoNo() != null)
-parameters.put("getResiduoPeligrosoNo", request.getDetallesDirreciones().getResiduoPeligrosoNo());
-
-if (request.getDetallesDirreciones().getPeso() != null)
-parameters.put("peso", request.getDetallesDirreciones().getPeso());
-
-if (request.getDetallesDirreciones().getMetrosCubicos() != null)
-parameters.put("metrosCubicos", request.getDetallesDirreciones().getMetrosCubicos());
-
-if (request.getDetallesDirreciones().getLitros() != null)
-parameters.put("litros", request.getDetallesDirreciones().getLitros());
-
-if (request.getDetallesDirreciones().getValorDeclarado() != null)
-parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclarado());
-}
-
+            }
+         // DetallesDireccesiones
+         			if(request.getDetallesDirreciones() != null) {
+         			if (request.getDetallesDirreciones().getOrigen() != null)
+         				parameters.put("origen", request.getDetallesDirreciones().getOrigen());
+         			
+         			if (request.getDetallesDirreciones().getDestino() != null)
+         				parameters.put("destino", request.getDetallesDirreciones().getDestino());
+         			
+         			if (request.getDetallesDirreciones().getRemitenteOExpedidor() != null)
+         				parameters.put("remitenteOExpedidor", request.getDetallesDirreciones().getRemitenteOExpedidor());
+         			
+         			if (request.getDetallesDirreciones().getDestinatario() != null)
+         				parameters.put("destinatario", request.getDetallesDirreciones().getDestinatario());
+         			
+         			if (request.getDetallesDirreciones().getDomicilio1() != null)
+         				parameters.put("domicilio1", request.getDetallesDirreciones().getDomicilio1());
+         			
+         			if (request.getDetallesDirreciones().getDomicilio2() != null)
+         				parameters.put("domicilio2", request.getDetallesDirreciones().getDomicilio2());
+         			
+         			if (request.getDetallesDirreciones().getSeRecogeraEn() != null)
+         				parameters.put("seRecogeraEn", request.getDetallesDirreciones().getSeRecogeraEn());
+         			
+         			if (request.getDetallesDirreciones().getSeEntregaraEn() != null)
+         				parameters.put("seEntregaraEn", request.getDetallesDirreciones().getSeEntregaraEn());
+         			
+         			if (request.getDetallesDirreciones().getRfc() != null)
+         				parameters.put("rfc", request.getDetallesDirreciones().getRfc());
+         			
+         			if (request.getDetallesDirreciones().getFechaCarga() != null)
+         				parameters.put("fechaCarga", request.getDetallesDirreciones().getFechaCarga());
+         			
+         			if (request.getDetallesDirreciones().getFechaOPlazoPrevisto() != null)
+         				parameters.put("fechaOPlazoPrevisto", request.getDetallesDirreciones().getFechaOPlazoPrevisto());
+         			
+         			if (request.getDetallesDirreciones().getDesignacionMercanciaATransportar() != null)
+         				parameters.put("designacionMercanciaATransportar", request.getDetallesDirreciones().getDesignacionMercanciaATransportar());
+         			
+         			if (request.getDetallesDirreciones().getResiduoPeligrosoSi() != null)
+         				parameters.put("residuoPeligrosoSi", request.getDetallesDirreciones().getResiduoPeligrosoSi());
+         			
+         			if (request.getDetallesDirreciones().getResiduoPeligrosoNo() != null)
+         				parameters.put("residuoPeligrosoNo", request.getDetallesDirreciones().getResiduoPeligrosoNo());
+         			
+         			if (request.getDetallesDirreciones().getPeso() != null)
+         				parameters.put("peso", request.getDetallesDirreciones().getPeso());
+         			
+         			if (request.getDetallesDirreciones().getMetrosCubicos() != null)
+         				parameters.put("metrosCubicos", request.getDetallesDirreciones().getMetrosCubicos());
+         			
+         			if (request.getDetallesDirreciones().getLitros() != null)
+         				parameters.put("litros", request.getDetallesDirreciones().getLitros());
+         			
+         			if (request.getDetallesDirreciones().getValorDeclarado() != null)
+         				parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclarado());
+         			}
 			// articulos
 
 			if(request.getDetalleFactura()!= null) {
@@ -367,6 +370,10 @@ parameters.put("valorDeclarado", request.getDetallesDirreciones().getValorDeclar
 				parameters.put("ds",
 						new JRBeanCollectionDataSource(request.getDoctosRelacionados().getDocumentosRelacionados()));
 
+			// Mercancías
+			if (request.getMercancias() != null)
+							parameters.put("fp",
+									new JRBeanCollectionDataSource(request.getMercancias().getMercancias()));
 			// Sellos
 			if(request.getSellos() != null) {
 			if (request.getSellos().getCadenaOriginal() != null)

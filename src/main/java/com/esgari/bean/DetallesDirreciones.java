@@ -35,8 +35,11 @@ public class DetallesDirreciones implements Serializable{
 	@JsonProperty("seRecogeraEn")
 	private String seRecogeraEn;
 	
-	@JsonProperty("RFC")
-	private String RFC;
+	@JsonProperty("seEntregaraEn")
+	private String seEntregaraEn;
+	
+	@JsonProperty("rfc")
+	private String rfc;
 	
 	@JsonProperty("fechaCarga")
 	private String fechaCarga;
