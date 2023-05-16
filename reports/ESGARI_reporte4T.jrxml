@@ -1452,9 +1452,9 @@ AGREGADO]]></text>
 				</reportElement>
 			</line>
 		</band>
-		<band height="66">
+		<band height="75">
 			<componentElement>
-				<reportElement x="0" y="0" width="554" height="60" uuid="4f662bc7-3e6d-4d39-9842-8b258d52d5aa">
+				<reportElement x="-1" y="7" width="554" height="60" uuid="4f662bc7-3e6d-4d39-9842-8b258d52d5aa">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
