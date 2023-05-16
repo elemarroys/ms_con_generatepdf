@@ -48,8 +48,8 @@ public class ComprobanteCfdiForwardingRequestMapping implements IComprobanteCfdi
 			Map parameters = new HashMap();
 			// imagenes
 
-			//parameters.put("logoEmpresa", new FileInputStream(
-					//ResourceUtils.getFile("/usr/local/img/ESGARI_LOGO_1.png")));
+			parameters.put("logoEmpresa", new FileInputStream(
+					ResourceUtils.getFile("/usr/local/img/ESGARI_LOGO_1.png")));
 					//ResourceUtils.getFile("D:\\ERPSOL\\ESGARI\\JAVA_PROJECTS\\ms_con_generatepdf\\img\\ESGARI_LOGO_1.png")));//
 			
 			
